@@ -1,0 +1,18 @@
+# Ignore all files in wp-content
+wp-content/*
+
+# Allow only je-slug-converter inside wp-content/plugins
+!wp-content/plugins/
+!wp-content/plugins/je-slug-converter/
+!wp-content/plugins/je-slug-converter/**
+
+# Allow root directory files
+!/*
+
+# Ignore other plugins, themes, and uploads inside wp-content
+wp-content/plugins/*
+!wp-content/plugins/je-slug-converter/
+
+# System
+.DS_Store
+.idea
