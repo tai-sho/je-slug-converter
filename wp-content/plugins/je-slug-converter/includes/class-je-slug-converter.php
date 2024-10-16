@@ -16,8 +16,9 @@ class JE_Slug_Converter {
     }
 
     private function define_hooks() {
-        add_filter('name_save_pre', array($this, 'convert_slug_to_english'), 10, 1);
-        add_filter('wp_insert_post_data', array($this, 'convert_post_slug_to_english'), 10, 2);
+//        add_filter('name_save_pre', array($this, 'convert_slug_to_english'), 10, 1);
+//        add_filter('wp_insert_post_data', array($this, 'convert_post_slug_to_english'), 10, 2);
+        add_filter('sanitize_title', array($this, 'convert_slug_to_english'), 10, 3);
     }
 
     public function run() {
@@ -40,6 +41,6 @@ class JE_Slug_Converter {
     }
 
     private function is_japanese($text) {
-        return preg_match('/[\x{4E00}-\x{9FBF}\x{3040}-\x{309F}\x{30A0}-\x{30FF}]/u', $text);
+        return preg_match('/[\p{Han}\p{Hiragana}\p{Katakana}]/u', $text);
     }
 }
