@@ -4,8 +4,8 @@
  * Plugin URI: http://example.com/plugin-name/
  * Description: Automatically converts Japanese slugs to English using Gemini API Pro.
  * Version: 1.0.0
- * Author: Your Name
- * Author URI: http://example.com/
+ * Author: ShoheiTai
+ * Author URI: https://wp.tech-style.info
  * License: GPL2
  */
 
