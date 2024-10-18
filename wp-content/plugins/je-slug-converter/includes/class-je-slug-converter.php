@@ -6,9 +6,11 @@ class JE_Slug_Converter {
 
     public function __construct() {
         $this->load_dependencies();
-        $this->define_hooks();
         $this->options = get_option('je_slug_converter_options');
-        $this->gemini_client = new Gemini_API_Client($this->options['gemini_api_key']);
+        if ($this->is_conversion_enabled()) {
+            $this->gemini_client = new Gemini_API_Client($this->options['gemini_api_key']);
+            $this->define_hooks();
+        }
     }
 
     private function load_dependencies() {
@@ -34,7 +36,7 @@ class JE_Slug_Converter {
     }
 
     public function convert_post_slug_to_english($data, $postarr) {
-        if (empty($data['post_name']) && !empty($data['post_title'])) {
+        if ($this->is_conversion_enabled() && empty($data['post_name']) && !empty($data['post_title'])) {
             $data['post_name'] = $this->convert_slug_to_english($data['post_title']);
         }
         return $data;
@@ -42,5 +44,12 @@ class JE_Slug_Converter {
 
     private function is_japanese($text) {
         return preg_match('/[\p{Han}\p{Hiragana}\p{Katakana}]/u', $text);
+    }
+
+    private function is_conversion_enabled() {
+        return isset($this->options['enable_conversion']) &&
+        $this->options['enable_conversion'] == '1' &&
+        isset($this->options['gemini_api_key']) &&
+        !empty($this->options['gemini_api_key']);
     }
 }

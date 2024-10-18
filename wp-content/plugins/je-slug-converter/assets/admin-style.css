@@ -1,0 +1,46 @@
+.je-slug-converter-intro,
+.je-slug-converter-usage,
+.je-slug-converter-author {
+    background-color: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.je-slug-converter-intro h2,
+.je-slug-converter-usage h3,
+.je-slug-converter-author h3 {
+    margin-top: 0;
+}
+
+.je-slug-converter-usage ol {
+    margin-left: 20px;
+}
+
+.je-slug-converter-author ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.je-slug-converter-author ul li {
+    margin-bottom: 5px;
+}
+
+#je-slug-converter-admin .form-table th {
+    width: 200px;
+}
+
+#je-slug-converter-admin .form-table td {
+    padding: 15px 10px;
+}
+
+#je-slug-converter-admin .regular-text {
+    width: 100%;
+    max-width: 400px;
+}
+
+#je-slug-converter-admin .description {
+    margin-top: 5px;
+    color: #666;
+}
